@@ -233,7 +233,7 @@ function showSliceInfoIn(e) {
 		
 	var image = e.target.getAttributeNS(null, "valueLabel");
 	document.getElementById("number").innerHTML = image;
-	document.getElementById("imageBox").innerHTML = '<img src="C:/Users/Hyukdong/Desktop/xgboost/figure/tree_' + image + '.png" id="imageBox" width="1000"/>';
+	document.getElementById("imageBox").innerHTML = '<img src="figure/tree_' + image + '.png" id="imageBox" width="1000"/>';
 
 }
 
