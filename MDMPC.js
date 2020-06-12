@@ -110,8 +110,10 @@ function getRadius(width, level, totalLevel, isSmall) {
 
 
 function sliceSize() {
+	//var maxSize = (width/2) * 90 / 100;
 	var maxSize = (width/2) * 90 / 100;
-	var minSize = (width/2) * 10 / 100;
+	//var maxSize = (width/2) * 10 / 100;
+	var minSize = (width/2) * 30 / 100;
 	
 	return (maxSize-minSize)/nbLevels;
 }
@@ -148,12 +150,19 @@ function drawSlice(level, realValue, angleStart, angleValue, color, label, paren
 		angleValue = 359.99;
 	
 	var center = width/2;
-    
+	angleStart = angleStart+90
+	
 	var startPointInside = new Point(center + getXCoordinateFromAngle(angleStart, getSmallRadius(level)), center - getYCoordinateFromAngle(angleStart, getSmallRadius(level)));
 	var startPointOutside = new Point(center + getXCoordinateFromAngle(angleStart, getBigRadius(level)), center - getYCoordinateFromAngle(angleStart, getBigRadius(level)));
 	
 	var endPointInside = new Point(center + getXCoordinateFromAngle(angleStart+angleValue, getSmallRadius(level)), center - getYCoordinateFromAngle(angleStart+angleValue, getSmallRadius(level)));
 	var endPointOutside = new Point(center + getXCoordinateFromAngle(angleStart+angleValue, getBigRadius(level)), center - getYCoordinateFromAngle(angleStart+angleValue, getBigRadius(level)))
+	
+	// var startPointInside = new Point(center + getXCoordinateFromAngle(angleStart, getSmallRadius(level)), center - getYCoordinateFromAngle(angleStart, getSmallRadius(level)));
+	// var startPointOutside = new Point(center + getXCoordinateFromAngle(angleStart, getBigRadius(level)), center - getYCoordinateFromAngle(angleStart, getBigRadius(level)));
+	
+	// var endPointInside = new Point(center + getXCoordinateFromAngle(angleStart+angleValue, getSmallRadius(level)), center - getYCoordinateFromAngle(angleStart+angleValue, getSmallRadius(level)));
+	// var endPointOutside = new Point(center + getXCoordinateFromAngle(angleStart+angleValue, getBigRadius(level)), center - getYCoordinateFromAngle(angleStart+angleValue, getBigRadius(level)))
 	
 	var currentComputedId = "pathIdD"+Math.random();
 	
@@ -181,7 +190,9 @@ function drawSlice(level, realValue, angleStart, angleValue, color, label, paren
     newPath.setAttributeNS(null, "opacity", 1);
     newPath.setAttributeNS(null, "fill", color);
     //newPath.addEventListener('click', showSliceInfo);
-    newPath.addEventListener('mouseover', showSliceInfoIn);
+	//newPath.addEventListener('mouseover', showSliceInfoIn);
+	newPath.addEventListener('click', showSliceInfoIn);
+	newPath.addEventListener('mouseover', temp);
 	newPath.addEventListener('mouseout', showSliceInfoOut);
 	
     newPath.setAttributeNS(null, "valueAngle", angleValue);
@@ -197,11 +208,16 @@ function drawSlice(level, realValue, angleStart, angleValue, color, label, paren
 	
 }
 
+function temp(e) {
+	findPathFromSliceIdAndSetOpacity(e.target.getAttributeNS(null, "id"), 0.5);
+}
+
+
 //handler on a slice
 function showSliceInfoIn(e) {
 	//console.log(e.target.getAttributeNS(null, "valueLabel") + " - " + e.target.getAttributeNS(null, "valueAngle"));
 	
-	findPathFromSliceIdAndSetOpacity(e.target.getAttributeNS(null, "id"), 0.5);
+	//findPathFromSliceIdAndSetOpacity(e.target.getAttributeNS(null, "id"), 0.5);
 	array = constructBreadCrumbs(e.target.getAttributeNS(null, "id"));
 	
 	var breadDiv = document.getElementById("breadCrumbs");
@@ -231,9 +247,9 @@ function showSliceInfoIn(e) {
 		
 	// }
 		
-	var image = e.target.getAttributeNS(null, "valueLabel");
-	document.getElementById("number").innerHTML = image;
-	document.getElementById("imageBox").innerHTML = '<img src="figure/tree_' + image + '.png" id="imageBox" width="1000"/>';
+	var imageNum = e.target.getAttributeNS(null, "valueLabel");
+	// document.getElementById("number").innerHTML = imageNum;
+	document.getElementById("imageBox").innerHTML = '<img src="C:/Users/Hyukdong/Desktop/xgboost/figure/tree_' + imageNum + '.png" id="imageBox" width="500"/>';
 
 }
 

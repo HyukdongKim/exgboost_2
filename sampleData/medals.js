@@ -6,8 +6,7 @@ var data = {
         alpha: "20",
         category: [
             {
-                // label: "America",
-                label: "1",
+                label: "America",
                 color: "#1ABC9C",
                 category: [{
                     label: "United States",
@@ -47,8 +46,7 @@ var data = {
                     }]
                }]
             }, {
-                // label: "Europe",
-                label: "2",
+                label: "Europe",
                 color: "#3498DB",
                 category: [{
                     label: "Great Britain",
@@ -160,8 +158,7 @@ var data = {
                     }]
                }]
             }, {
-                // label: "Asia",
-                label: "3",
+                label: "Asia",
                 color: "#9B59B6",
                 category: [{
                     label: "China",
@@ -237,8 +234,7 @@ var data = {
                     }]
                }]
             }, {
-                // label: "Oceania",
-                label: "4",
+                label: "Oceania",
                 color: "#F1C40F",
                 category: [{
                     label: "Australia",

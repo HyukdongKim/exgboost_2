@@ -1,24 +1,24 @@
 var data = {
     category: [{
-        label: "contribution",
-        value: "1",
-        color: "#84888E",
-        alpha: "20",
+        label: "",
+        value: "0",
+        color: "#FFFFFF",
+        alpha: "30",
         category: [
             {
-                label: "America",
+                label: "1",
                 color: "#1ABC9C",
-                value: "100",
+                value: "10000",
             }, {
-                label: "Europe",
+                label: "2",
                 color: "#3498DB",
                 value: "200",
             }, {
-                label: "Asia",
+                label: "3",
                 color: "#9B59B6",
                 value: "300",
             }, {
-                label: "Oceania",
+                label: "4",
                 color: "#F1C40F",
                 value: "400",
             }
